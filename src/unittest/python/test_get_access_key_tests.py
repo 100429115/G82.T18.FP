@@ -45,10 +45,10 @@ class TestAccessManager(unittest.TestCase):
             keys_store = KeysJsonStore()
             for row in param_test_cases:
                 file_name = JSON_FILES_PATH + row["FILE"]
-                print("Param:" + row[ 'ID TEST' ] + row["VALID INVALID"])
-                if row["VALID INVALID"] ==  "VALID":
+                print("Param:" + row['ID TEST'] + row["VALID INVALID"])
+                if row["VALID INVALID"] == "VALID":
                     valor = my_code.get_access_key(file_name)
-                    self.assertEqual(row[ "EXPECTED RESULT" ], valor)
+                    self.assertEqual(row["EXPECTED RESULT"], valor)
                     print("el valor: " + valor)
                     generated_key = keys_store.find_item(valor)
                     print(generated_key)

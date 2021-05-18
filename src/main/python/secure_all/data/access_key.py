@@ -12,10 +12,10 @@ from secure_all.data.attributes.attribute_key import Key
 from secure_all.storage.keys_json_store import KeysJsonStore
 from secure_all.parser.key_json_parser import KeyJsonParser
 
+from secure_all.storage.last_access import LastAccessJsonStore
 
 
-
-class AccessKey():
+class AccessKey:
     """Class representing the key for accessing the building"""
     #pylint: disable=too-many-instance-attributes
 
@@ -102,7 +102,13 @@ class AccessKey():
         keys_store = KeysJsonStore()
         keys_store.add_item(self)
 
-    def is_valid( self ):
+    def store_time_mark(self, key):
+        justnow = datetime.utcnow()
+        dicc = {"_LastAccessKey__key": key, "_LastAccessKey__time": str(justnow)}
+        last_json = LastAccessJsonStore()
+        last_json.add_item(dicc)
+
+    def is_valid(self):
         """Return true if the key is not expired"""
         justnow = datetime.utcnow()
         justnow_timestamp = datetime.timestamp(justnow)

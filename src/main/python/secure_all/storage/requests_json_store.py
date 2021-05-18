@@ -4,8 +4,7 @@ from secure_all.exception.access_management_exception import AccessManagementExc
 from secure_all.cfg.access_manager_config import JSON_FILES_PATH
 
 
-
-class RequestJsonStore():
+class RequestJsonStore:
     """Extends JsonStore"""
 
     class __RequestJsonStore(JsonStore):
@@ -23,7 +22,7 @@ class RequestJsonStore():
         _FILE_PATH = JSON_FILES_PATH + "storeRequest.json"
         _ID_FIELD = ID_FIELD
 
-        def add_item( self, item):
+        def add_item(self, item):
             """Implementing the restrictions related to avoid duplicated DNIs in the list
             import of AccessRequest must be placed here instead of at the top of the file
             to avoid circular references"""
