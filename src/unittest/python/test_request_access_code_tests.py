@@ -26,23 +26,25 @@ class MyTestCase(unittest.TestCase):
             my_code = AccessManager()
             for row in param_test_cases:
                 print("Param:" + row[ 'ID TEST' ] + row[ "VALID INVALID" ])
-                if row[ "VALID INVALID" ] ==  "VALID":
-                    valor = my_code.request_access_code( row[ "DNI" ], row[ "NAME SURNAME" ],
-                                                         row[ "ACCESS TYPE" ],  row[ "email" ],
-                                                         int(row[ "VALIDITY" ]))
-                    self.assertEqual( row[ 'EXPECTED RESULT' ], valor)
+                if row["VALID INVALID"] == "VALID":
+                    valor = my_code.request_access_code(row["DNI"], row["NAME SURNAME"],
+                                                         row["ACCESS TYPE"],  row["email"],
+                                                         int(row["VALIDITY"]))
+                    self.assertEqual(row['EXPECTED RESULT'], valor)
                     # Check if this DNI is store in storeRequest.json
-                    generated_request = AccessRequest.create_request_from_code(valor,row[ "DNI" ])
-                    my_request = AccessRequest(row[ "DNI" ], row[ "NAME SURNAME" ],
-                                               row[ "ACCESS TYPE" ],  row[ "email" ],
-                                               int(row[ "VALIDITY" ]))
+                    generated_request = AccessRequest.create_request_from_code(
+                        row['EXPECTED RESULT'],
+                        row['DNI'])
+                    my_request = AccessRequest(row["DNI"], row["NAME SURNAME"],
+                                               row["ACCESS TYPE"],  row["email"],
+                                               int(row["VALIDITY"]))
                     self.assertDictEqual(generated_request.__dict__, my_request.__dict__)
                 else:
                     with self.assertRaises(AccessManagementException) as c_m:
-                        valor = my_code.request_access_code(row[ "DNI" ], row[ "NAME SURNAME" ],
-                                                            row[ "ACCESS TYPE" ], row[ "email" ],
-                                                            int(row[ "VALIDITY" ]))
-                    self.assertEqual(c_m.exception.message, row[ 'EXPECTED RESULT' ])
+                        valor = my_code.request_access_code(row["DNI"], row["NAME SURNAME"],
+                                                            row["ACCESS TYPE"], row["email"],
+                                                            int(row["VALIDITY"]))
+                    self.assertEqual(c_m.exception.message, row['EXPECTED RESULT'])
 
     def test_invalid_days_character(self):
         """Testing an character instead of a number for days"""
@@ -51,6 +53,7 @@ class MyTestCase(unittest.TestCase):
             my_code.request_access_code("12345678Z", "Pedro Martin",
                                         "Resident", "test@test.com", "a")
         self.assertEqual(c_m.exception.message, "days invalid")
+
 
 if __name__ == '__main__':
     unittest.main()

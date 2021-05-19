@@ -56,7 +56,8 @@ class TestAccessManager(unittest.TestCase):
                 else:
                     with self.assertRaises(AccessManagementException) as c_m:
                         my_code.get_access_key(file_name)
-                    self.assertEqual(c_m.exception.message, row[ "EXPECTED RESULT" ])
+                    self.assertEqual(c_m.exception.message, row["EXPECTED RESULT"])
+
 
 if __name__ == '__main__':
     unittest.main()

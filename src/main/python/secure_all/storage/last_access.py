@@ -1,5 +1,5 @@
 """Module link to he json with the time mark and the final key"""
-
+from datetime import datetime
 from secure_all.storage.json_store import JsonStore
 from secure_all.cfg.access_manager_config import JSON_FILES_PATH
 
@@ -22,6 +22,12 @@ class LastAccessJsonStore:
             self.load_store()
             self._data_list.append(item)
             self.save_store()
+
+        def store_time_mark(self, key):
+            """Method that obtains the mark time in order to add it to the dicc"""
+            justnow = datetime.utcnow()
+            dicc = {"_LastAccessKey__key": key, "_LastAccessKey__time": str(justnow)}
+            self.add_item(dicc)
 
     __instance = None
 
