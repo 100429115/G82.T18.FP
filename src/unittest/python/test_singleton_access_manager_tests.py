@@ -3,12 +3,14 @@
 import unittest
 
 from secure_all import AccessManager, KeysJsonStore, RequestJsonStore
+from secure_all.storage.last_access import LastAccessJsonStore
+from secure_all.storage.revoke_key import RevokeKeyJsonStore
 from secure_all.data.attributes.attribute_dni import Dni
 
 
 class MyTestCase(unittest.TestCase):
     """Test case for the singletons"""
-    def test_singleton_access_manager( self ):
+    def test_singleton_access_manager(self):
         """Instance the three singletons and test they're equal
             Instance objects from non singleton class and test they're differet"""
         access_manager_1 = AccessManager()
@@ -35,6 +37,22 @@ class MyTestCase(unittest.TestCase):
         self.assertEqual(keys_json_store_2, keys_json_store_3)
         self.assertEqual(keys_json_store_3, keys_json_store_1)
 
+        last_access_json_store_1 = LastAccessJsonStore()
+        last_access_json_store_2 = LastAccessJsonStore()
+        last_access_json_store_3 = LastAccessJsonStore()
+
+        self.assertEqual(last_access_json_store_1, last_access_json_store_2)
+        self.assertEqual(last_access_json_store_2, last_access_json_store_3)
+        self.assertEqual(last_access_json_store_3, last_access_json_store_1)
+
+        revoke_json_store_1 = RevokeKeyJsonStore()
+        revoke_json_store_2 = RevokeKeyJsonStore()
+        revoke_json_store_3 = RevokeKeyJsonStore()
+
+        self.assertEqual(revoke_json_store_1, revoke_json_store_2)
+        self.assertEqual(revoke_json_store_2, revoke_json_store_3)
+        self.assertEqual(revoke_json_store_3, revoke_json_store_1)
+
         #probamos ahora que dos clases sin singleton devuelven
         #instancias distintas. Por ejemplo con DNI
 
@@ -42,6 +60,7 @@ class MyTestCase(unittest.TestCase):
         dni_2 = Dni("12345678Z")
 
         self.assertNotEqual(dni_1, dni_2)
+
 
 if __name__ == '__main__':
     unittest.main()

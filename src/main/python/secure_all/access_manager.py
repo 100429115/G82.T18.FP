@@ -33,6 +33,10 @@ class AccessManager:
                 last_access.store_time_mark(key)
             return my_key.is_valid()
 
+        def revoke_key(self, filepath):
+            """Method that checks the revoked keys"""
+            pass
+
     __instance = None
 
     def __new__(cls):
