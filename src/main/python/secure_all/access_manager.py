@@ -35,7 +35,7 @@ class AccessManager:
 
         def revoke_key(self, filepath):
             """Method that checks the revoked keys"""
-            pass
+
 
     __instance = None
 
