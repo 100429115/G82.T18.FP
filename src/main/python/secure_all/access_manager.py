@@ -3,7 +3,8 @@
 from secure_all.data.access_key import AccessKey
 from secure_all.data.access_request import AccessRequest
 
-from secure_all.storage.last_access import LastAccessJsonStore
+from secure_all.storage.last_access_store import LastAccessJsonStore
+from secure_all.storage.revoke_key_store import RevokeKeyJsonStore
 
 
 class AccessManager:
@@ -34,8 +35,13 @@ class AccessManager:
             return my_key.is_valid()
 
         def revoke_key(self, filepath):
-            """Method that checks the revoked keys"""
-
+            """Devuelve el correo electrónico o un AccessManagementException"""
+            tupla = AccessKey.obtain_revoke_labels(filepath)
+            my_key = AccessKey.create_key_from_id(tupla[0])
+            if my_key.is_valid():
+                RevokeKeyJsonStore().find_item(tupla[0])
+                RevokeKeyJsonStore().add_item(tupla[0])
+            return str(my_key.notification_emails)
 
     __instance = None
 
@@ -43,3 +49,9 @@ class AccessManager:
         if not AccessManager.__instance:
             AccessManager.__instance = AccessManager.__AccessManager()
         return AccessManager.__instance
+
+    def __getattr__(self, nombre):
+        return getattr(self.__instance, nombre)
+
+    def __setattr__(self, nombre, valor):
+        return setattr(self.__instance, nombre, valor)

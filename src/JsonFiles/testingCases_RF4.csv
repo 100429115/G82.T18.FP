@@ -1,20 +1,81 @@
-FIELD;VALID INVALID;ID TEST;CRITERIA;KEY;REVOCATION; REASON; EXPECTED RESULT
-KEY;VALID;RF1 1;All valid values for a guest;de000a04f3a9b1d15b07e38b166f00f3fb1bf46533f32ac37156faf43e47f722;Temporal;Otra oferta de trabajo; Valid format
-KEY;INVALID;RF1 2;INVALID LETTER IN HEXADECIMAL; de000a04f3a9b1d15b07e38b166f00f3fb1bf46533f32ac37156faf43e47f722;Temporal;Otra oferta de trabajo; Key is not valid
-KEY;INVALID;RF1 3;INVALID LENGHT (MAX-1); de000a04f3a9b1d15b07e38b166f00f3fb1bf46533f32ac37156faf43e47f722;Temporal;Otra oferta de trabajo; Key is not valid
-KEY;INVALID;RF1 4;INVALID LENGHT (MAX+1); de000a04f3a9b1d15b07e38b166f00f3fb1bf46533f32ac37156faf43e47f722;Temporal;Otra oferta de trabajo; Key is not valid
-REVOCATION;VALID;RF1 5;FINAL REVOCATION;de000a04f3a9b1d15b07e38b166f00f3fb1bf46533f32ac37156faf43e47f722;Final;Otra oferta de trabajo; Valid format
-REVOCATION;INVALID;RF1 6;INVALID REVOCATION; de000a04f3a9b1d15b07e38b166f00f3fb1bf46533f32ac37156faf43e47f722;Inicio;Otra oferta de trabajo; Revocation is not valid
-REASON;INVALID;RF1 7;INVALID REASON (MAX+1);de000a04f3a9b1d15b07e38b166f00f3fb1bf46533f32ac37156faf43e47f722;Temporal;AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA; Reason is not valid
-REASON;INVALID;RF1 8;INVALID REASON (MAX-1);de000a04f3a9b1d15b07e38b166f00f3fb1bf46533f32ac37156faf43e47f722;Temporal;Otra oferta de trabaj; Reason is not valid
-REASON;INVALID;RF1 9;INVALID REASON (DUPLICATION);de000a04f3a9b1d15b07e38b166f00f3fb1bf46533f32ac37156faf43e47f722;Temporal;Otra oferta de trabajoOtra oferta de trabajo; Reason is not valid
-REASON;INVALID; RF1 10; INVALID REASON (ELIMINATION);de000a04f3a9b1d15b07e38b166f00f3fb1bf46533f32ac37156faf43e47f722;Temporal;; Reason is not valid
-KEY;INVALID;RF1 11; INVALID KEY (DUPLICATION);de000a04f3a9b1d15b07e38b166f00f3fb1bf46533f32ac37156faf43e47f722de000a04f3a9b1d15b07e38b166f00f3fb1bf46533f32ac37156faf43e47f722;Temporal;Otra oferta de trabajo; Key is not valid
-KEY;INVALID;RF1 12; INVALID KEY (ELIMINATION);;Temporal;Otra oferta de trabajo; Key is not valid
-REVOCATION; RF1 13; INVALID REVOCATION (MAX+1);de000a04f3a9b1d15b07e38b166f00f3fb1bf46533f32ac37156faf43e47f722;Temporall;Otra oferta de trabajo; Revocation is not valid
-REVOCATION; RF1 14; INVALID REVOCATION (MAX-1);de000a04f3a9b1d15b07e38b166f00f3fb1bf46533f32ac37156faf43e47f722;Tempora;Otra oferta de trabajo; Revocation is not valid
-REVOCATION;RF1 15; INVALID REVOCATION (DUPLICATION);de000a04f3a9b1d15b07e38b166f00f3fb1bf46533f32ac37156faf43e47f722;TemporalTemporal;Otra oferta de trabajo; Revocation is not valid
-REVOCATION;RF1 16; INVALID REVOCATION (ELIMINATION);de000a04f3a9b1d15b07e38b166f00f3fb1bf46533f32ac37156faf43e47f722;-;Otra oferta de trabajo; Revocation is not valid
-KEY;INVALID;RF1 17; INVALID KEY (WRONG FORMAT); 65; Temporal; Otra oferta de trabajo; Key is not valid
-REVOCATION; INVALID; RF1 18; INVALID REVOCATION (WRONG FORMAT); de000a04f3a9b1d15b07e38b166f00f3fb1bf46533f32ac37156faf43e47f722; por varios días; Otra oferta de trabajo; Revocation is not valid
-REASON; INVALID; RF1 19; INVALID REASON (WRONG FORMAT); de000a04f3a9b1d15b07e38b166f00f3fb1bf46533f32ac37156faf43e47f722; Temporal; 1234; Reason is not valid
+VALID INVALID;ID TEST; FILE; EXPECTED RESULT
+VALID;RF3 1;clase_eq_Ok.json;["mail1@uc3m.es","mail2@uc3m.es"]
+INVALID;RF3 2;clase_eq_invalid_letter.json; key invalid
+INVALID;RF3 3;clase_eq_key(-1).json; key invalid
+INVALID;RF3 4;clase_eq_key(+1).json; key invalid
+VALID;RF3 5;clase_eq_revocation_final.json;["mail1@uc3m.es","mail2@uc3m.es"]
+INVALID;RF3 6;clase_eq_inicio_revocation.json; revocation is not valid
+INVALID;RF3 7;clase_eq_reason(+1).json;reason is not valid
+VALID; RF4 10;clase_eq_revocation_final.json; ["mail1@uc3m.es","mail2@uc3m.es"]
+INVALID;RF4 11; double_colon2.json; JSON Decode Error - Wrong JSON Format
+INVALID; RF4 12;double_comma2.json; JSON Decode Error - Wrong JSON Format
+INVALID; RF4 13;double_final_brace2.json; JSON Decode Error - Wrong JSON Format
+INVALID; RF4 14;double_first_quote2.json; JSON Decode Error - Wrong JSON Format
+INVALID; RF4 15;double_fourth_quote2.json; JSON Decode Error - Wrong JSON Format
+INVALID; RF4 16;double_initial_brace2.json; JSON Decode Error - Wrong JSON Format
+INVALID; RF4 17;double_label_key.json; JSON Decode Error - Wrong JSON Format
+INVALID; RF4 18; double_label_key_in_quotes.json; JSON Decode Error - Wrong JSON Format
+INVALID; RF4 19;double_label_reason.json; JSON Decode Error - Wrong JSON Format
+INVALID; RF4 20;double_label_reason_in_quotes.json; JSON Decode Error - Wrong JSON Format
+INVALID; RF4 21; double_label_revocation.json; JSON Decode Error - Wrong JSON Format
+INVALID; RF4 22;double_label_revocation_in_quotes.json; JSON Decode Error - Wrong JSON Format
+INVALID; RF4 23;double_second_quote2.json; JSON Decode Error - Wrong JSON Format
+INVALID; RF4 24;double_third_quote2.json; JSON Decode Error - Wrong JSON Format
+INVALID; RF4 25;double_value_key.json; JSON Decode Error - Wrong JSON Format
+INVALID; RF4 26;double_value_key_in_quotes.json; "Key is not valid"
+INVALID; RF4 27;double_value_reason.json; JSON Decode Error - Wrong JSON Format
+INVALID; RF4 28;double_value_reason_in_quotes.json; ["mail1@uc3m.es","mail2@uc3m.es"]
+INVALID; RF4 29;double_value_revocation_in_quotes.json; " Revocation is not valid"
+INVALID; RF4 30;double_label_revocation.json; JSON Decode Error - Wrong JSON Format
+INVALID; RF4 31;invalid_colon2.json; JSON Decode Error - Wrong JSON Format
+INVALID; RF4 32;invalid_comma2.json; JSON Decode Error - Wrong JSON Format
+INVALID; RF4 33;invalid_final_brace2.json; JSON Decode Error - Wrong JSON Format
+INVALID; RF4 34;invalid_first_quote2.json; JSON Decode Error - Wrong JSON Format
+INVALID; RF4 35;invalid_fourth_quote2.json; JSON Decode Error - Wrong JSON Format
+INVALID; RF4 36;invalid_initial_brace2.json; JSON Decode Error - Wrong JSON Format
+INVALID; RF4 37;invalid_second_quote2.json; JSON Decode Error - Wrong JSON Format
+INVALID; RF4 38;invalid_fourth_quote2.json; JSON Decode Error - Wrong JSON Format
+INVALID; RF4 39;invalid_third_quote2.json; JSON Decode Error - Wrong JSON Format
+INVALID; RF4 40;key_bad_label12.json; JSON Decode Error - Wrong JSON Format
+INVALID; RF4 41;key_bad_label22.json; JSON Decode Error - Wrong JSON Format
+INVALID; RF4 42;key_bad_label32.json; JSON Decode Error - Wrong JSON Format
+INVALID; RF4 43;key_eliminated_comma2.json; JSON Decode Error - Wrong JSON Format
+INVALID; RF4 44;key_empty.json; "Wrong file or file path"
+INVALID; RF4 45;key_without_bracket2.json; JSON Decode Error - Wrong JSON Format
+INVALID; RF4 46;key_without_final_bracket2.json; JSON Decode Error - Wrong JSON Format
+INVALID; RF4 47; modif_valor1.json; "Key is not valid"
+INVALID; RF4 48; modif_valor2.json; "Revocation is not valid"
+INVALID; RF4 49;modif_valor3.json; ["mail1@uc3m.es","mail2@uc3m.es"]
+INVALID; RF4 50;nada_datos2.json; JSON Decode Error - Wrong JSON Format
+INVALID; RF4 51;nada_key.json; JSON Decode Error - Wrong JSON Format
+INVALID; RF4 52;nada_reason.json; JSON Decode Error - Wrong JSON Format
+INVALID; RF4 53;nada_revocation.json; JSON Decode Error - Wrong JSON Format
+INVALID; RF4 54;no_colon_field12.json; JSON Decode Error - Wrong JSON Format
+INVALID; RF4 55;no_label_12.json; JSON Decode Error - Wrong JSON Format
+INVALID; RF4 56;no_node_key.json; JSON Decode Error - Wrong JSON Format
+INVALID; RF4 57; no_nodo_atributo_reason.json; JSON Decode Error - Wrong JSON Format
+INVALID; RF4 58;no_nodo_valor_reason.json; JSON Decode Error - Wrong JSON Format
+INVALID; RF4 59; no_quotation1_label12.json; JSON Decode Error - Wrong JSON Format
+INVALID; RF4 60;no_quotation1_value12.json; JSON Decode Error - Wrong JSON Format
+INVALID; RF4 61;no_quotation1_label22.json; JSON Decode Error - Wrong JSON Format
+INVALID; RF4 62;no_quotation1_value22.json; JSON Decode Error - Wrong JSON Format
+INVALID; RF4 63; no_reason_label.json; JSON Decode Error - Wrong JSON Format
+INVALID; RF4 64;no_revocation.json; JSON Decode Error - Wrong JSON Format
+INVALID; RF4 65;no_revocation_nodo.json; JSON Decode Error - Wrong JSON Format
+INVALID; RF4 66;no_valor_revocation.json; JSON Decode Error - Wrong JSON Format
+INVALID; RF4 67;no_valor_revocation_nodo.json; JSON Decode Error - Wrong JSON Format
+INVALID; RF4 68;no_valor3.json; JSON Decode Error - Wrong JSON Format
+INVALID; RF4 69;no_value_key.json; JSON Decode Error - Wrong JSON Format
+INVALID; RF4 70; no_value12.json; JSON Decode Error - Wrong JSON Format
+INVALID; RF4 71; no_valor_reason.json; JSON Decode Error - Wrong JSON Format
+INVALID; RF4 72; todo_dato1.json; JSON Decode Error - Wrong JSON Format
+INVALID; RF4 73;todo_dato2.json; JSON Decode Error - Wrong JSON Format
+INVALID; RF4 74;todo_dato3.json; JSON Decode Error - Wrong JSON Format
+INVALID; RF4 75; todos_datos_2.json; JSON Decode Error - Wrong JSON Format
+INVALID; RF4 76;todo2.json; JSON Decode Error - Wrong JSON Format
+INVALID; RF5 1;json_no_existe.json;"Wrong file or file path"
+INVALID; RF5 2;double_colon2.json;JSON Decode Error - Wrong JSON Format
+INVALID; RF5 3;graf_no_existent_key.json; "Key is not valid"
+INVALID; RF5 4:;"Key is not valid"
+INVALID; RF5 5;graf_key_revoke; "key already found in RevokeKeyJson"
+VALID; RF5 6;clase_eq_Ok.json;["mail1@uc3m.es","mail2@uc3m.es"]

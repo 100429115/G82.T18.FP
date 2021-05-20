@@ -3,8 +3,8 @@
 import unittest
 
 from secure_all import AccessManager, KeysJsonStore, RequestJsonStore
-from secure_all.storage.last_access import LastAccessJsonStore
-from secure_all.storage.revoke_key import RevokeKeyJsonStore
+from secure_all.storage.last_access_store import LastAccessJsonStore
+from secure_all.storage.revoke_key_store import RevokeKeyJsonStore
 from secure_all.data.attributes.attribute_dni import Dni
 
 

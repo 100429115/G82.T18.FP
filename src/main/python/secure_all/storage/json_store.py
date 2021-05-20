@@ -2,6 +2,7 @@
 import json
 from secure_all.exception.access_management_exception import AccessManagementException
 
+
 class JsonStore():
     """Managest stores based on JsonFiles"""
     _FILE_PATH = ""
@@ -43,7 +44,7 @@ class JsonStore():
                 return item
         return None
 
-    def save_store( self ):
+    def save_store(self):
         """Save the list in the json file _FILE_PATH
         Now it is not necessary check the list because it was created in the __init__
         so the only thing we need is to save the list in the file, raising and exception if
