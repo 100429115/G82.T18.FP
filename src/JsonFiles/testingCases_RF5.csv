@@ -1,0 +1,7 @@
+VALID INVALID;ID TEST; FILE; EXPECTED RESULT
+INVALID; RF5 1;json_no_existe.json;Wrong file or file path
+INVALID; RF5 2;double_colon2.json;JSON Decode Error - Wrong JSON Format
+INVALID; RF5 3;graf_no_existent_key.json; key is not found or is expired
+INVALID; RF5 4:;"Key is not valid"
+INVALID; RF5 5;graf_key_revoke; "key already found in RevokeKeyJson"
+VALID; RF5 6;clase_eq_Ok.json;["mail1@uc3m.es","mail2@uc3m.es"]
