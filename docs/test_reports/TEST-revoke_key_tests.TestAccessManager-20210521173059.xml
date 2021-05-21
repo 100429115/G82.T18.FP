@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="revoke_key_tests.TestAccessManager-20210521173059" tests="6" file="revoke_key_tests.py" time="0.153" timestamp="2021-05-21T17:30:59" failures="0" errors="0" skipped="0">
+	<testcase classname="revoke_key_tests.TestAccessManager" name="test_already_revoked_key" time="0.009" timestamp="2021-05-21T17:30:59"/>
+	<testcase classname="revoke_key_tests.TestAccessManager" name="test_expired_key" time="0.010" timestamp="2021-05-21T17:30:59"/>
+	<testcase classname="revoke_key_tests.TestAccessManager" name="test_invalid_format_key" time="0.009" timestamp="2021-05-21T17:30:59"/>
+	<testcase classname="revoke_key_tests.TestAccessManager" name="test_invalid_format_reason" time="0.009" timestamp="2021-05-21T17:30:59"/>
+	<testcase classname="revoke_key_tests.TestAccessManager" name="test_invalid_format_revocation" time="0.003" timestamp="2021-05-21T17:30:59"/>
+	<testcase classname="revoke_key_tests.TestAccessManager" name="test_parametrized_cases_tests" time="0.112" timestamp="2021-05-21T17:30:59"/>
+</testsuite>

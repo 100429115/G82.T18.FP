@@ -6,7 +6,7 @@ INVALID;RF3 4;clase_eq_key(+1).json;key invalid
 VALID;RF3 5;clase_eq_revocation_final.json;['mail1@uc3m.es', 'mail2@uc3m.es']
 INVALID;RF3 6;clase_eq_inicio_revocation.json;revocation is not valid
 INVALID;RF3 7;clase_eq_reason(+1).json;reason is not valid
-VALID;RF4 10;clase_eq_revocation_final.json;['mail1@uc3m.es', 'mail2@uc3m.es']
+VALID;RF4 10;clase_eq_Ok.json;['mail1@uc3m.es', 'mail2@uc3m.es']
 INVALID;RF4 11;double_colon2.json;JSON Decode Error - Wrong JSON Format
 INVALID;RF4 12;double_comma2.json;JSON Decode Error - Wrong JSON Format
 INVALID;RF4 13;double_final_brace2.json;JSON Decode Error - Wrong JSON Format
