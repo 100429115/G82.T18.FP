@@ -42,7 +42,7 @@ class AccessManager:
             if my_key.is_valid():
                 existencia = RevokeKeyJsonStore().find_item(labels[0])
                 RevokeKeyJsonStore().revoke_key_store(labels, existencia)
-            return my_key.notification_emails
+            return str(my_key.notification_emails)
 
     __instance = None
 

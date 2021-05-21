@@ -1,12 +1,12 @@
 VALID INVALID;ID TEST;FILE;EXPECTED RESULT
-VALID;RF3 1;clase_eq_Ok.json;[mail1@uc3m.es,mail2@uc3m.es]
+VALID;RF3 1;clase_eq_Ok.json;['mail1@uc3m.es', 'mail2@uc3m.es']
 INVALID;RF3 2;clase_eq_invalid_letter.json;key invalid
 INVALID;RF3 3;clase_eq_key(-1).json;key invalid
 INVALID;RF3 4;clase_eq_key(+1).json;key invalid
-VALID;RF3 5;clase_eq_revocation_final.json;[mail1@uc3m.es,mail2@uc3m.es]
+VALID;RF3 5;clase_eq_revocation_final.json;['mail1@uc3m.es', 'mail2@uc3m.es']
 INVALID;RF3 6;clase_eq_inicio_revocation.json;revocation is not valid
 INVALID;RF3 7;clase_eq_reason(+1).json;reason is not valid
-VALID;RF4 10;clase_eq_revocation_final.json;[mail1@uc3m.es,mail2@uc3m.es]
+VALID;RF4 10;clase_eq_revocation_final.json;['mail1@uc3m.es', 'mail2@uc3m.es']
 INVALID;RF4 11;double_colon2.json;JSON Decode Error - Wrong JSON Format
 INVALID;RF4 12;double_comma2.json;JSON Decode Error - Wrong JSON Format
 INVALID;RF4 13;double_final_brace2.json;JSON Decode Error - Wrong JSON Format
@@ -24,7 +24,7 @@ INVALID;RF4 24;double_third_quote2.json;JSON Decode Error - Wrong JSON Format
 INVALID;RF4 25;double_value_key.json;JSON Decode Error - Wrong JSON Format
 INVALID;RF4 26;double_value_key_in_quotes.json;key invalid
 INVALID;RF4 27;double_value_reason.json;JSON Decode Error - Wrong JSON Format
-VALID;RF4 28;double_value_reason_in_quotes.json;[mail1@uc3m.es,mail2@uc3m.es]
+VALID;RF4 28;double_value_reason_in_quotes.json;['mail1@uc3m.es', 'mail2@uc3m.es']
 INVALID;RF4 29;double_value_revocation_in_quotes.json;revocation is not valid
 INVALID;RF4 30;double_label_revocation.json;JSON Decode Error - Wrong JSON Format
 INVALID;RF4 31;invalid_colon2.json;JSON Decode Error - Wrong JSON Format
@@ -45,7 +45,7 @@ INVALID;RF4 45;key_without_bracket2.json;JSON Decode Error - Wrong JSON Format
 INVALID;RF4 46;key_without_final_bracket2.json;JSON Decode Error - Wrong JSON Format
 INVALID;RF4 47;modif_valor1.json;key invalid
 INVALID;RF4 48;modif_valor2.json;revocation is not valid
-VALID;RF4 49;modif_valor3.json;[mail1@uc3m.es,mail2@uc3m.es]
+VALID;RF4 49;modif_valor3.json;['mail1@uc3m.es', 'mail2@uc3m.es']
 INVALID;RF4 50;nada_datos2.json;JSON Decode Error - Wrong label
 INVALID;RF4 51;nada_key.json;JSON Decode Error - Wrong JSON Format
 INVALID;RF4 52;nada_reason.json;JSON Decode Error - Wrong JSON Format
@@ -66,7 +66,7 @@ INVALID;RF4 66;no_valor_revocation.json;revocation is not valid
 INVALID;RF4 67;no_valor_revocation_nodo.json;JSON Decode Error - Wrong JSON Format
 INVALID;RF4 69;no_value_key.json;JSON Decode Error - Wrong JSON Format
 INVALID;RF4 70;no_value12.json;key invalid
-INVALID;RF4 71;no_valor_reason.json;reason is not valid
+VALID;RF4 71;no_valor_reason.json;['mail1@uc3m.es', 'mail2@uc3m.es']
 INVALID;RF4 72;todo_dato1.json;JSON Decode Error - Wrong JSON Format
 INVALID;RF4 73;todo_dato2.json;JSON Decode Error - Wrong JSON Format
 INVALID;RF4 74;todo_dato3.json;JSON Decode Error - Wrong JSON Format
@@ -75,4 +75,4 @@ INVALID;RF4 76;todo2.json;JSON Decode Error - Wrong JSON Format
 INVALID;RF5 1;json_no_existe.json;Wrong file or file path
 INVALID;RF5 2;double_colon2.json;JSON Decode Error - Wrong JSON Format
 INVALID;RF5 3;graf_no_existent_key.json;key is not found or is expired
-VALID;RF5 6;clase_eq_Ok.json;[mail1@uc3m.es,mail2@uc3m.es]
+VALID;RF5 6;clase_eq_Ok.json;['mail1@uc3m.es', 'mail2@uc3m.es']
