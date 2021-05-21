@@ -16,18 +16,11 @@ class LastAccessJsonStore:
         _FILE_PATH = JSON_FILES_PATH + "storeLastKeys.json"
         _ID_FIELD = ID_FIELD
 
-        def add_item(self, item):
-            """Implementing the restrictions related to avoid duplicated keys"""
-            # pylint: disable=import-outside-toplevel,cyclic-import
-            self.load_store()
-            self._data_list.append(item)
-            self.save_store()
-
         def store_time_mark(self, key):
             """Method that obtains the mark time in order to add it to the dicc"""
             justnow = datetime.utcnow()
-            dicc = {"_LastAccessKey__key": key, "_LastAccessKey__time": str(justnow)}
-            self.add_item(dicc)
+            dicc = {self._ID_FIELD: key, self.MARK_TIME: str(justnow)}
+            super().add_item2(dicc)
 
     __instance = None
 

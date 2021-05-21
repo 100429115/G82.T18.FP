@@ -25,10 +25,10 @@ class TestAccessManager(unittest.TestCase):
         my_manager.request_access_code("53935158C", "Marta Lopez",
                                                "Guest", "uc3m@gmail.com", 5)
 
-        my_manager.get_access_key(JSON_FILES_PATH  + "key_ok.json")
+        my_manager.get_access_key(JSON_FILES_PATH + "key_ok.json")
 
         # introduce a key valid and expiration date = 0 , resident
-        my_manager.get_access_key(JSON_FILES_PATH  + "key_ok3_resident.json")
+        my_manager.get_access_key(JSON_FILES_PATH + "key_ok3_resident.json")
 
         # introduce a key expirated, I need to change expiration date before to store the key
         my_manager.request_access_code("68026939T", "Juan Perez",

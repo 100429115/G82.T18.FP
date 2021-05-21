@@ -15,8 +15,8 @@ class Attribute():
     """Default error message"""
     _error_message = ""
 
-    def _validate( self, attr_value ):
-        if not isinstance(attr_value,str):
+    def _validate(self, attr_value):
+        if not isinstance(attr_value, str):
             raise AccessManagementException(self._error_message)
         if not re.fullmatch(self._validation_pattern, attr_value):
             raise AccessManagementException(self._error_message)

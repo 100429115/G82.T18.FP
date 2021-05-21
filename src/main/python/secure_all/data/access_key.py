@@ -101,10 +101,9 @@ class AccessKey:
     def obtain_revoke_labels(file):
         """Obtiene las claves de un diccionario de revoke request"""
         dicc = RevokeJsonParser(file).json_content
-        key = Key(dicc[RevokeJsonParser.KEY]).value
-        revocation = Revocation(dicc[RevokeJsonParser.REVOCATION]).value
-        reason = Reason(dicc[RevokeJsonParser.REASON]).value
-        return key, revocation, reason
+        return (Key(dicc[RevokeJsonParser.KEY]).value,
+                Revocation(dicc[RevokeJsonParser.REVOCATION]).value,
+                Reason(dicc[RevokeJsonParser.REASON]).value)
 
     def store_keys(self):
         """Storing the key in the keys store """

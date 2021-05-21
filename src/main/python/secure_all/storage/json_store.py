@@ -36,6 +36,13 @@ class JsonStore():
         self._data_list.append(item.__dict__)
         self.save_store()
 
+    def add_item2(self, item):
+        """Implementing the restrictions related to add a dicc"""
+        # pylint: disable=import-outside-toplevel,cyclic-import
+        self.load_store()
+        self._data_list.append(item)
+        self.save_store()
+
     def find_item(self, key):
         """find the value key in the _KEY_FIELD"""
         self.load_store()

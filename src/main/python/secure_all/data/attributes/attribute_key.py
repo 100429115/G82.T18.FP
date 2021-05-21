@@ -1,6 +1,7 @@
 """Class for validating the keys"""
 from secure_all.data.attributes.attribute import Attribute
 
+
 class Key(Attribute):
     """Class for validating the keys with a regex"""
     #pylint: disable=too-few-public-methods
